@@ -6,10 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+    <div class="cursor"></div>
     <div class="centered">
-        This Page is only a <strong id="moveR">Sample Page</strong>    
-    </div>    
+        This Page is only a <strong id="moveR">Sample Page</strong>            
+    </div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e =>{            
+            cursor.setAttribute("style", "top: "+(e.pageY-10)+"px; left: "+(e.pageX-10)+"px;");
+        });
+
+        document.addEventListener('click',() =>{
+            cursor.classList.add("expand")
+
+            setTimeout(() => {
+                cursor.classList.remove("expand");
+            },500);
+        });
+
+    </script>
 </body>
 </html>
